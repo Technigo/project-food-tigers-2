@@ -1,7 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0px 70px 0px 70px;
+}
+
+header {
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+  top: 0;
+  border-bottom: 1px solid grey;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+  
+}
+
+.title-name {
+
+}
+
+main {
+
+}
+
+.sub-header {
+ border-bottom: 1px solid grey;
+}
+
+h2 {
+
+}
+
 .restaurant-container {
-    border: 3px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .restaurant-box {
-    border: 2px dotted green;
+  border: 2px dotted green;
+  width: 30%;
+  height: auto;
+  margin-top: 20px;
+  border: 1px solid grey;
 }
