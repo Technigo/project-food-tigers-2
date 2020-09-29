@@ -6,10 +6,7 @@ const apiUrl = 'https://developers.zomato.com/api/v2.1/search?entity_id=74&entit
 fetch(apiUrl, { headers: { "user-key": apiKey } })
   .then(response => response.json())
   .then(json => {
-    console.log(json)
-    console.log(json.restaurants[0].restaurant.name)
     console.log(json.restaurants[0].restaurant.average_cost_for_two)
-    console.log(json.restaurants[0].restaurant.location.address)
     console.log(json.restaurants[0].restaurant.user_rating.aggregate_rating)
 
     const myRestaurants = json.restaurants.map(item => {
@@ -23,16 +20,33 @@ fetch(apiUrl, { headers: { "user-key": apiKey } })
     myRestaurants.forEach(item => {
       restaurants.innerHTML += generateRestaurant(item)
     })
-
-
   })
-
-
 
 // function that generates HTML for a restaurant. 
 const generateRestaurant = item => `
+ <div class="restaurant-box"> 
   <h3 class="restaurant-name">${item.name}</h3> 
-  <p class="restaurant-address">${item.address}</p>`
+  <p class="restaurant-address">${item.address}</p>
+</div>`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
