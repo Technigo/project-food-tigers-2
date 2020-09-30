@@ -3,7 +3,7 @@
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;
-  padding: 0px 70px 0px 70px;
+  padding: 0px 30px 0px 30px;
 }
 
 header {
@@ -38,8 +38,7 @@ h2 {
 }
 
 .restaurant-box {
-  border: 2px dotted green;
-  width: 32%;
+  width:100%;
   height: auto;
   margin-top: 20px;
   border: 1px solid lightgray;
@@ -72,4 +71,36 @@ p {
 
 span {
   content: "\2B50";
+}
+
+footer {
+  background-color: white;
+  text-align: center;
+  height: 50px;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  margin-top: 20px;
+  border-top: 1px solid lightgray;
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .restaurant-box {
+    width: 47%;
+  }
+
+  body{
+    padding: 0px 50px 0px 50px;
+  }
+
+}
+
+@media (min-width: 1025px) {
+  .restaurant-box {
+    width: 32%;
+  }
+  body {
+    padding: 0px 70px 0px 70px;
+  }
+
 }
