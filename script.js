@@ -34,11 +34,16 @@ fetch(apiUrl, { headers: { "user-key": apiKey } })
 // function that generates HTML for a restaurant. 
 const generateRestaurant = item => `
  <div class="restaurant-box"> 
-  <h3 class="restaurant-name">${item.name}</h3> 
-  <p class="restaurant-address">${item.address}</p>
-  <p class="restaurant-rating">${item.rating}</p>
-  <p class="restaurant-cost">${item.cost} IDR</p>
   <img class="restaurant-image" src="${item.image}">
+  <div class="text-box">
+    <h3 class="restaurant-name">${item.name}</h3> 
+    <p class="restaurant-address">${item.address}</p>
+    <p class="restaurant-rating">
+      <span>&#11088;</span>
+      ${item.rating}
+    </p>
+    <p class="restaurant-cost">${item.cost} IDR</p>
+  </div>
 </div>`
 
 // function that sorts the restaurants based on price, from cheapest to most expensive.
