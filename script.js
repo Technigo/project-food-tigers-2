@@ -6,7 +6,6 @@ const apiUrl = 'https://developers.zomato.com/api/v2.1/search?entity_id=74&entit
 fetch(apiUrl, { headers: { "user-key": apiKey } })
   .then(response => response.json())
   .then(json => {
-    console.log(json)
     const myRestaurants = json.restaurants.map(item => {
       name = item.restaurant.name
       address = item.restaurant.location.address
@@ -16,14 +15,21 @@ fetch(apiUrl, { headers: { "user-key": apiKey } })
       return { name, cost, address, rating, image }
     })
     console.log(myRestaurants)
-    console.log(myRestaurants[0].cost)
 
+    // loops through and calls generateRestaurant() for each item in myRestautans.
     myRestaurants.forEach(item => {
       restaurants.innerHTML += generateRestaurant(item)
     })
+
+    // add eventlistener that sorts the restaurants when user clicks button.
+    const sortedRestaurants = myRestaurants.sort(compare)
+    console.log(sortedRestaurants)
+
+    // add eventlistener that filters the restaurants when user clicks button.
+    const greatRestaurants = myRestaurants.filter(check)
+    console.log(greatRestaurants)
+
   })
-
-
 
 // function that generates HTML for a restaurant. 
 const generateRestaurant = item => `
@@ -34,6 +40,30 @@ const generateRestaurant = item => `
   <p class="restaurant-cost">${item.cost} IDR</p>
   <img class="restaurant-image" src="${item.image}">
 </div>`
+
+// function that sorts the restaurants based on price, from cheapest to most expensive.
+function compare(a, b) {
+  const costA = a.cost
+  const costB = b.cost
+
+  let comparison = 0;
+  if (costA > costB) {
+    comparison = 1
+  } else if (costA < costB) {
+    comparison = -1
+  }
+  return comparison
+}
+
+// function that filters restaurants based on rating, includes restaurants with a rating higher than 4.
+function check(item) {
+  return item.rating > 4
+}
+
+
+
+
+
 
 
 
