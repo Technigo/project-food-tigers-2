@@ -1,7 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto&display=swap');
+
+body {
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0px 30px 0px 30px;
+}
+
+header {
+  box-sizing: border-box;
+  margin: 0;
+  width: 100%;
+  top: 0;
+  border-bottom: 1px solid lightgray;
+}
+
+.title-name {
+  font-family: 'Pacifico', cursive;
+  font-size: 3rem;
+}
+
+main {
+
+}
+
+.sub-header {
+ border-bottom: 1px solid lightgray;
+}
+
+h2 {
+  font-size: 1.25rem;
+}
+
 .restaurant-container {
-    border: 3px solid red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .restaurant-box {
-    border: 2px dotted green;
+  width:100%;
+  height: auto;
+  margin-top: 20px;
+  border: 1px solid lightgray;
+  border-radius: 5px;
+}
+
+.restaurant-image {
+  width: 100%;
+  height: 195px;
+  object-fit: cover;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.text-box {
+  padding: 10px;
+}
+
+.restaurant-name{
+  font-size: 1rem;
+}
+
+p {
+  font-size: 0.9rem;
+  color: grey;
+}
+
+.restaurant-box:hover {
+  box-shadow: 0 0 10px #ccc;
+}
+
+span {
+  content: "\2B50";
+}
+
+footer {
+  background-color: white;
+  text-align: center;
+  height: 50px;
+  padding-top: 50px;
+  padding-bottom: 30px;
+  margin-top: 20px;
+  border-top: 1px solid lightgray;
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .restaurant-box {
+    width: 47%;
+  }
+
+  body{
+    padding: 0px 50px 0px 50px;
+  }
+
+}
+
+@media (min-width: 1025px) {
+  .restaurant-box {
+    width: 32%;
+  }
+  body {
+    padding: 0px 70px 0px 70px;
+  }
+
 }
