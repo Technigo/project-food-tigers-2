@@ -72,3 +72,6 @@ const generateRestaurant = item => `
 
 
 
+
+
+
