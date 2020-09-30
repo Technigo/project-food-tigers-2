@@ -11,7 +11,7 @@ header {
   margin: 0;
   width: 100%;
   top: 0;
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid lightgray;
 }
 
 h1 {
@@ -29,7 +29,7 @@ main {
 }
 
 .sub-header {
- border-bottom: 1px solid grey;
+ border-bottom: 1px solid lightgray;
 }
 
 h2 {
@@ -47,5 +47,5 @@ h2 {
   width: 30%;
   height: auto;
   margin-top: 20px;
-  border: 1px solid grey;
+  border: 1px solid lightgray;
 }
