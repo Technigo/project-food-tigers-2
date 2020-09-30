@@ -11,23 +11,30 @@ fetch(apiUrl, { headers: { "user-key": apiKey } })
       address = item.restaurant.location.address
       cost = new Number(item.restaurant.average_cost_for_two).toLocaleString("se-SE")
       rating = item.restaurant.user_rating.aggregate_rating
-      image = item.restaurant.featured_image
+      if (item.restaurant.featured_image) {
+        image = item.restaurant.featured_image
+      } else {
+        image = `https://images.unsplash.com/photo-1453227588063-bb302b62f50b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80`
+      }
       return { name, cost, address, rating, image }
     })
-    console.log(myRestaurants)
 
-    // loops through and calls generateRestaurant() for each item in myRestautans.
     myRestaurants.forEach(item => {
       restaurants.innerHTML += generateRestaurant(item)
     })
 
-    // add eventlistener that sorts the restaurants when user clicks button.
     const sortedRestaurants = myRestaurants.sort(compare)
-    console.log(sortedRestaurants)
 
-    // add eventlistener that filters the restaurants when user clicks button.
-    const greatRestaurants = myRestaurants.filter(check)
-    console.log(greatRestaurants)
+    const sortRestaurants = () => {
+      restaurants.innerHTML = ""
+      sortedRestaurants.forEach(item => {
+        restaurants.innerHTML += generateRestaurant(item)
+      })
+    }
+
+    document.getElementById("button").addEventListener("click", sortRestaurants)
+
+    // const greatRestaurants = myRestaurants.filter(check)
 
   })
 
@@ -56,51 +63,6 @@ function compare(a, b) {
 }
 
 // function that filters restaurants based on rating, includes restaurants with a rating higher than 4.
-function check(item) {
-  return item.rating > 4
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// function check(item) {
+//   return item.rating > 4
+// }
