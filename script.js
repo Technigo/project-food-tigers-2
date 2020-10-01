@@ -19,12 +19,23 @@ fetch(apiUrl, { headers: { "user-key": apiKey } })
       return { name, cost, address, rating, image }
     })
 
+    // const displayRestaurants = restaurants => {
+    //   restaurants.innerHTML = ""
+    //   restaurants.forEach(item => {
+    //     restaurants.innerHTML += generateRestaurant(item)
+    //   })
+    // }
+
+    // displayRestaurants(myRestaurants)
+
     myRestaurants.forEach(item => {
       restaurants.innerHTML += generateRestaurant(item)
     })
 
+    // new array including all restaurants sorted based on price from cheapest to most expensive
     const sortedRestaurants = myRestaurants.sort(compare)
 
+    // function that loops through the sorted restaurants array and calls generateRestaurant() for each restaurant
     const sortRestaurants = () => {
       restaurants.innerHTML = ""
       sortedRestaurants.forEach(item => {
@@ -32,13 +43,22 @@ fetch(apiUrl, { headers: { "user-key": apiKey } })
       })
     }
 
-    document.getElementById("button").addEventListener("click", sortRestaurants)
+    // new array including the restaurants with rating > 4
+    const filteredRestaurants = myRestaurants.filter(check)
 
-    // const greatRestaurants = myRestaurants.filter(check)
+    // function that loops through the filtered restaurants array and calls generateRestaurant() for each restaurant
+    const filterRestaurants = () => {
+      restaurants.innerHTML = ""
+      filteredRestaurants.forEach(item => {
+        restaurants.innerHTML += generateRestaurant(item)
+      })
+    }
 
+    document.getElementById("sort-button").addEventListener("click", sortRestaurants)
+    document.getElementById("filter-button").addEventListener("click", filterRestaurants)
   })
 
-// function that generates HTML for a restaurant. 
+// function that generates HTML for a restaurant
 const generateRestaurant = item => `
  <div class="restaurant-box"> 
   <img class="restaurant-image" src="${item.image}">
@@ -53,7 +73,7 @@ const generateRestaurant = item => `
   </div>
 </div>`
 
-// function that sorts the restaurants based on price, from cheapest to most expensive.
+// function that sorts the restaurants based on price, from cheapest to most expensive
 function compare(a, b) {
   const costA = a.cost
   const costB = b.cost
@@ -67,7 +87,7 @@ function compare(a, b) {
   return comparison
 }
 
-// function that filters restaurants based on rating, includes restaurants with a rating higher than 4.
-// function check(item) {
-//   return item.rating > 4
-// }
+// function that filters restaurants based on rating > 4
+function check(item) {
+  return item.rating > 4
+}
