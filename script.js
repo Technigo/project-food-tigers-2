@@ -19,20 +19,16 @@ fetch(apiUrl, { headers: { "user-key": apiKey } })
       return { name, cost, address, rating, image }
     })
 
-    // const displayRestaurants = restaurants => {
-    //   restaurants.innerHTML = ""
-    //   restaurants.forEach(item => {
-    //     restaurants.innerHTML += generateRestaurant(item)
-    //   })
-    // }
+    // loops through the my restaurants array and calls generateHTML for each restaurant
+    const displayRestaurants = () => {
+      myRestaurants.forEach(item => {
+        restaurants.innerHTML += generateRestaurant(item)
+      })
+    }
 
-    // displayRestaurants(myRestaurants)
+    displayRestaurants()
 
-    myRestaurants.forEach(item => {
-      restaurants.innerHTML += generateRestaurant(item)
-    })
-
-    // new array including all restaurants sorted based on price from cheapest to most expensive
+    // new array with the restaurants sorted based on price from cheapest to most expensive
     const sortedRestaurants = myRestaurants.sort(compare)
 
     // function that loops through the sorted restaurants array and calls generateRestaurant() for each restaurant
@@ -54,7 +50,10 @@ fetch(apiUrl, { headers: { "user-key": apiKey } })
       })
     }
 
+    // eventlistener for when user clicks sort button
     document.getElementById("sort-button").addEventListener("click", sortRestaurants)
+
+    // evebtlistener for when user clicks filter button
     document.getElementById("filter-button").addEventListener("click", filterRestaurants)
   })
 

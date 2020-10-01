@@ -21,8 +21,12 @@ header {
 
 .sub-header {
  border-bottom: 1px solid lightgray;
- display: flex;
- justify-content: space-between;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 0 0;
 }
 
 .button {
@@ -67,7 +71,7 @@ h2 {
   padding: 10px;
 }
 
-.restaurant-name{
+.restaurant-name {
   font-size: 1rem;
 }
 
